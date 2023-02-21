@@ -44,6 +44,8 @@ theme_update(plot.title.position = "plot",
   
 )
 
+
+#PLOT2 Adding the top 5 movies by age difference of romantic interests for each decade
 df_1 = age_gaps%>%select(release_year,movie_name,character_1_gender, director,age_difference,decade,release_year,couple_number)%>%
   filter(age_difference >=10 & couple_number == 1)%>%
   group_by(release_year,movie_name,director,character_1_gender,decade)%>%arrange(desc(age_difference))
