@@ -1,9 +1,6 @@
 library(tidytuesdayR)
 library(ggplot2)
 library(tidyverse)
-library(here)
-library(janitor)
-library(ggstatsplot)
 library(plotly)
 library(tidytext)
 library(ggthemes)
@@ -13,15 +10,9 @@ library(tidyr)
 library(showtext)
 library(RColorBrewer)
 
-#https://www.youtube.com/watch?v=IKgVPXuuOnY
-
 # Get the Data
 
 # Read in with tidytuesdayR package 
-# Install from CRAN via: install.packages("tidytuesdayR")
-# This loads the readme and all the datasets for the week of interest
-
-# Either ISO-8601 date or year/week works!
 
 tuesdata <- tidytuesdayR::tt_load('2023-02-28')
 tuesdata <- tidytuesdayR::tt_load(2023, week = 9)
@@ -54,13 +45,15 @@ theme_update(plot.title.position = "plot",
 df1 = afrosenti%>%select(country, label)%>%group_by(country,label)%>%count()%>%ungroup()%>%
   group_by(country)%>%mutate(percent = round(n/sum(n)*100.0,1),xpos = cumsum(percent))
 
+
 #first plot - distribution of sentiment by country
 p1 = ggplot(df1, aes(x = percent, y = reorder(country, desc(country)),fill = label))+geom_col(colour = "black")+
   geom_text(position = position_stack(vjust = 0.5),size = 3,fontface = "bold",label = paste0(df3$percent,"%"))+theme_minimal()+
   labs(x = paste0("Percentage"," ","%"), y = " ",title = "Sentiment Percentage of Tweets by Country")+
   scale_fill_manual(values = c('#d95f0e','#fec44f','#fff7bc'))+
   theme(plot.title = element_text(hjust = 0.5,vjust = 0.9,face = "bold",size = 10),axis.text.x = element_text(face = "bold"),
-        legend.position = "bottom",axis.text.y = element_text(size = 9, face = "bold",vjust = 0.7,hjust = 0.4),axis.title.x = element_text(face = "bold"),
+        legend.position = "bottom",
+         axis.text.y = element_text(size = 9, face = "bold",vjust = 0.7,hjust = 0.4),axis.title.x = element_text(face = "bold"),
         legend.text=element_text(size=7,face = "bold"),
         legend.key.size = unit(1.5, "lines"),
         legend.title = element_text(size = 7,face = "bold"),
@@ -84,7 +77,9 @@ p2 = ggplot(df2, aes(x = percent, y = reorder(country, desc(country)),fill = fac
   labs(y = "",x = paste0("Percentage"," ","%"),title = "Language Distribution of Tweets by Country")+
   scale_y_reordered()+scale_fill_manual(values = my_palette)+
   theme(plot.title = element_text(hjust = 0.5,vjust = 0.9,face = "bold",size = 10),axis.title.x = element_text(face = "bold"),
-        legend.position = "none",axis.text.y = element_text(size = 9, face = "bold",vjust = 0.7,hjust = 0.4),axis.text.x = element_text(face = "bold"))
+        legend.position = "none",
+        axis.text.y = element_text(size = 9, face = "bold",vjust = 0.7,hjust = 0.4),
+        axis.text.x = element_text(face = "bold"))
 
 
 #combined plot
