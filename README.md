@@ -6,14 +6,15 @@ All My Tidy Tuesday Work in One Place
 
 [Code Link]: https://github.com/vinidapooh/TidyTuesday/blob/main/Week%208/AfroSenti.R
 
-![African Tweet Sentiment] (https://user-images.githubusercontent.com/25292577/225311264-456b4ef8-d2e6-4e1e-8d97-83328ed2e08d.png)
+![African Tweet Sentiment] ![Afroplot](https://user-images.githubusercontent.com/25292577/225312928-24e2fc3f-eb69-4169-a261-40d73f871fc6.png)
+
 
 
 # 2. Age Gaps_Hollywood
 
-[Code Link] : https://github.com/vinidapooh/TidyTuesday/blob/main/Week%207/Age%20Gaps_Hollywood.R
+![Age Gap Hollywood] ![finalplot3](https://user-images.githubusercontent.com/25292577/225313460-c7320f9b-3d26-4e69-95fb-795b2534d0bc.png)
 
-![Age Gap_Hollywood] (https://user-images.githubusercontent.com/25292577/225312276-a796a792-8007-4688-a918-0471ef45b30c.png)
+
 
 # 3. Big Tech Stock Prices
 
